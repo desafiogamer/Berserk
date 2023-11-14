@@ -1,0 +1,434 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berserk</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/styl.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <div class="menu">
+            <nav id="nav" class="navbar">
+                <a href="#home">Home</a>
+                <a href="#personagens">Personagens</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#comentario">feedback</a>
+            </nav>
+        </div>
+
+        {% if user.is_authenticated %}
+        <a class="logout" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a class="logout" href="{% url 'login' %}">Login</a>
+        {% endif %}
+
+        <button onclick="animarMenu()" id="btn-menu">
+            <span class="linha"></span>
+            <span class="linha"></span>
+            <span class="linha"></span>
+        </button>
+
+        <div id="menu-mobile" class="menu-mobile">
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#personagens">Personagens</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#comentario">Comentarios</a>
+            </nav>
+        </div>
+    </header>
+
+    {% block conteudo %}
+        <section id="home" class="home">
+            <div class="home-content">
+                <h1>Introdução</h1>
+                <div class="capa"></div>
+
+                <div class="escrita">
+                    <p>Berserk é uma série de mangá escrita e ilustrada por Kentaro Miura. Situada em um mundo de fantasia sombria medieval inspirado na Europa, a história gira em torno dos personagens Guts, um mercenário solitário, e Griffith, o líder de um bando de mercenários chamados de Bando do Falcão. Temas como isolamento, camaradagem, e a questão de se a humanidade é fundamentalmente boa ou má permeiam a história, enquanto ela explora o melhor e o pior da natureza humana. Tanto o mangá como as animações são conhecidos por sua violência pesada.</p>
+                    <button onclick="abrirModal()" class="botao">Ver mais</button>
+                    <div class="janela-modal" id="janela-modal">
+                        <div class="modal">
+                            <button class="fechar" id="fechar">X</button>
+                            <h1>Berserk</h1>
+                            <p>O mundo de Berserk é situado num universo sombrio, dentro de uma sociedade ignorante e guiada pela ganância, dinheiro, pela falta de caráter, pela lâmina que mata e que faz sobreviverem alguma arma ninguém vive muito tempo O mundo vive de guerras, se move através das guerras, geralmente entre as duas maiores nações: Midland e Tudor. <br> <br> O mundo é extenso, cheio de mistérios e enigmas profundos, chamados por muitos de bruxaria, heresia contra a igreja católica que é a maior e única entidade religiosa, a inquisição existe e é praticada com orgulho e esmero. <br> Dentro desse mundo voce deve sobreviver, muitas vezes sendo um campones que tem seu dinheiro sugado pelos impostos, um gatuno que é obrigado a roubar e corre o risco de ser morto pelo império a qualquer instante. Um guerreiro que devota sua vida no campo de batalha em nome de um rei ou um aventureiro que busca seu sonho. <br> <br> Pouco a pouco os mitos do passado de mostram reais, o inimaginável começa a aparecer diante dos olhos humanos, aquilo parece inconcebivel para o vaticano, demonios que devem ser mortos. O mundo se ve entre a fantasia e a ignorância, medindo forças que vão, lentamente,pendendo para a irrefutável verdade que se torna iminente. <br> Entre violencia e desolação jamais se de por vencido, ou será mais um na pilha de corpos.
+                                <br><br>
+                                Dizem que foram as crianças, as primeiras a notar. <br>Lentamente, nas depressões das árvores, na sombra das folhas, no espaço entre as ondas, nos suspiros do vento, no fundo do poço, na escuridão dos confins... Lentamente, lugares que estiveram em silencio por tempos inimagináveis, deixaram de estar em silencio. De dentro do silencio, alguma coisa começou a respirar
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="personagens" class="personagens">
+            <div class="titulo">
+                <h1>Personagens</h1>
+            </div>
+            <div class="sub">
+                <h4>(Click nos cards para ver mais sobre os personagens.)</h4>
+            </div>
+            <div class="personagens-content">
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente guts">
+                            <p>GUTS</p>
+                        </div>
+
+                        <div onclick="abrirModalguts()" class="verso">
+                            <p>Guts é o principal protagonista de Berserk.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-guts">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Guts</h1>
+                        <p>Quando criança, ele tentou formar uma família entre sua mãe e pai adotivos, embora ela tenha sido atingida por uma
+                        doença, morrendo rapidamente e o pai raramente dava sua aprovação a ele, apesar do quanto Guts desejava isso. Vendo
+                        Gambino e Shisu como seus pais adotivos, Guts nunca pensou sobre seus pais biológicos, colocando Gambino como a coisa
+                        mais próxima que ele tinha de um pai, apesar da tentativa do líder mercenário em matá-lo. Guts afunda em depressão
+                        depois de acidentalmente matar Gambino em defesa própria.
+                        Gambino Stabbed
+                        Guts apunhala Gambino em defesa própria.
+                        <br>
+                        <br>
+                        Nos quatro anos que ele viajou com vários grupos de mercenários, é mostrado que Guts não havia se aproximado de ninguém
+                        até encontrar Griffith e o Bando do Falcão. Exibindo uma personalidade adolescente solitária, embora arrogante, Guts se
+                        tornou próximo dos Falcões ao longo de seus três anos com eles, até mesmo desconsiderando a negatividade de Corkus e se
+                        adaptando a personalidade rude de mercenários compartilhada pelos Falcões. Só depois de falar com Gaston momentos antes
+                        do Eclipse acontece é que Guts percebeu que os Falcões eram uma família para ele e que ele era teimoso demais para
+                        admitir isso. A ocorrência do Eclipse fez com que os Falcões fossem sacrificados e Guts, ao acordar, depois de quatro
+                        dias de descanso, correu para fora da mina élfica de Godo e chorou ao se lembrar das mortes dos Falcões.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente grift">
+                            <p>GRIFFITH</p>
+                        </div>
+
+                        <div onclick="abrirModalgrift()" class="verso">
+                            <p>Griffith é o antagonista principal de Berserk.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-grift">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Griffith</h1>
+                        <p>Griffith e muito habilidoso em combate , ele venceu Guts (apesar de Guts estar machucado , ser mais novo, mas quando
+                        Griffith decidiu vencer venceu Guts facilmente), isso na época que Guts tinha se juntado ao Bando do Falcão quando Guts
+                        tinha vencido Bazuzo que e dito que Bazuzo já venceu 30 homens, então se Griffith venceu Guts ele então e muito
+                        habilidoso em combate. Mas após três anos Guts foi quem venceu Griffith facilmente mas até antes disso Griffith era
+                        considerado por muitos o membro mais forte do bando, provando ser um humano muito forte .
+                        <br>
+                        <br>
+                        Mas maior arma de Griffith é o seu misterioso carisma para induzir os outros a se submeterem apenas por estarem próximos
+                        a ele. A visão dele e o som de sua voz são o suficiente para dobrar a vontade de qualquer um e os transformar em servos
+                        fiéis, prontos para morrerem a seu comando.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente casca">
+                            <p>CASCA</p>
+                        </div>
+
+                        <div onclick="abrirModalcasca()" class="verso">
+                            <p>Casca é a protagonista feminina de Berserk e era a única mulher no Bando do Falcão.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-casca">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Casca</h1>
+                        <p>Como uma jovem de origem humilde, Casca considerava dificuldades, tais como fome e sequestro, um fato normal da vida de
+                        camponesa. No entanto, depois de ter sido quase estuprada por um nobre, ela escolheu lutar, antes de ser auxiliada por
+                        Griffith, o qual ofereceu a ela uma espada para se defender. Matando o nobre ela mesma, Casca passa a seguir Griffith,
+                        tornando-se uma guerreira estoica, endurecida, e imensamente leal no processo.
+                        <br>
+                        <br>
+                        Tal era a sua dedicação, que todos sabiam
+                        que ela estaria disposta a dar sua própria vida por sua causa. O comportamento frio de Casca esconde seu próprio passado
+                        resultante de sua infância traumática, e os desafios que ela enfrentou por causa do preconceito em relação ao seu sexo.
+                        Incrivelmente dedicada à causa de Griffith, ela imediatamente despreza Guts por a substituir como a subordinada mais
+                        confiável de Griffith, até mesmo chegando a confessar que já desejou matá-lo por tirar tudo dela.
+                        <br>
+                        <br>
+                        Após a prisão de
+                        Griffith, ela passou um ano agindo como a líder do Bando do Falcão na ausência do Falcão e de Guts, o que a deixou ainda
+                        mais amargurada com Guts. No entanto, os dois (Guts e Casca), eventualmente, se conciliaram e reconheceram que a relação
+                        deles era mais do que apenas a de meros companheiros de luta no campo de batalha, e sim como, praticamente, namorados.</p>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente rickert">
+                            <p>RICKERT</p>
+                        </div>
+
+                        <div onclick="abrirModalrickert()" class="verso">
+                            <p>Rickert era o membro mais novo do Bando do Falcão.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-rickert">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Rickert</h1>
+                        <p>Rickert foi mostrado primeiramente quando criança no Bando do Falcão sendo um dos primeiros Falcões a dar boas vindas a
+                        Guts, ele era muito amigo de Judeau, Pippin e Corkus e Guts ele era um dos principais membros do bando, depois que o
+                        bando entrou em decadência pela saída de Guts e a prisão de Griffith e vários outros fatores, Rickert teve seu braço
+                        quebrado e quando Guts voltou ao bando e Rickert não pode ir com eles salvar Griffith por ter um braço quebrado e ficou
+                        em um grupo separado do bando temporariamente.
+                        <br>
+                        <br>
+                        Nesse grupo do bando um dos soldados pede a ele para ir buscar água ele
+                        vai e vê Rosine que vou para a floresta, Rickert vai atrás dela e vê todos seus companheiros mortos por monstros
+                        apóstolos Rickert e salvo pelo Cavaleiro Crânio.
+                        <br>
+                        <br>
+                        Depois do Eclipse Rickert esta no local da tempestade do Eclipse e vê a luta entre Cavaleiro Crânio e Zodd e o Cavaleiro
+                        Crânio salva apenas Guts e Casca ele pergunta porque os dois estão nesse estado e ouve com medo a conversa de Zodd e o
+                        Cavaleiro Crânio.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente wyald">
+                            <p>WYALD</p>
+                        </div>
+
+                        <div onclick="abrirModalwyald()" class="verso">
+                            <p>Wyald é um Apóstolo com cara de símio e uma atitude sádica tornou-o mais monstruoso do que humano.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-wyald">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Wyald</h1>
+                        <p>Muito pouco se sabe sobre a vida de Wyald antes que ele se tornou um apóstolo, a partir do fato de que ele era um
+                        pequeno e velho homem que, presumivelmente, lamentou não viver a vida que ele queria. Devido a circunstâncias
+                        desconhecidas, Wyald permitiu-se ser preso, foi essa ocasião em que se encontrou com o Rei de Midland, que ordenou que
+                        todos os prisioneiros fisicamente capazes de montar e ser convocado para a guerra. Wyald ofereceu como líder deste novo
+                        exército alegando que ele era o mais forte e a posição era sua por direito.
+                        <br>
+                        <br>
+                        Um homem enorme conhecido como Bahbo "O
+                        Decepador de Cavaleiros,aproximou-se para desafiar o seu pedido e os dois lutaram até a morte pelo direito de liderança.
+                        A fim de ganhar o medo e respeito dos outros condenados, Wyald matou de forma espetacular; jogando-o sobre uma torre de
+                        pico. Wyald e seu exército de condenados foram chamados de "Cavaleiros Cachorros Negros" ganhou uma reputação infame por
+                        ser o exército mais cruel e bárbaro em toda Midland como seu hábito de depredação lhes causou o banimento para os
+                        arredores de Midland,longe da vista do rei.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente skull-knight">
+                            <p>SKULL-KNIGHT</p>
+                        </div>
+
+                        <div onclick="abrirModalskull()" class="verso">
+                            <p>Skull knight é uma figura enigmática e um autoproclamado "inimigo dos desumanos", tendo travado uma guerra contra os demônios por um milênio.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-skull">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Skull-knight</h1>
+                        <p>Um ser antigo, o Cavaleiro Caveira é indiferente e misterioso, com uma grande consciência do fluxo de causalidade e
+                        conhecimento prévio de eventos que ainda não aconteceram. Como tal, ele possui uma visão de mundo brutalmente
+                        realista, muitas vezes citando a inevitabilidade do fluxo da causalidade.
+                        <br>
+                        <br>
+                        Apesar dessa perspectiva, ele provou ser
+                        bastante heróico, salvando Guts , os camaradas do espadachim e Luca em várias ocasiões. No entanto, Flora questionou se
+                        suas ações são um cuidado genuíno ou apenas um meio de promover sua própria agenda, uma questão para a qual o Cavaleiro
+                        Caveira faz ouvidos moucos.
+                        <br>
+                        <br>
+                        Em última análise, ele valoriza a vontade humana de sobreviver e desafiar o destino,
+                        encorajando Guts a lutar contra a causalidade e apropriadamente chamando-o de "lutador". Ele também é bastante
+                        perspicaz, alertando Guts que o verdadeiro desejo de Casca pode ser diferente do próprio Espadachim Negro.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente ubik">
+                            <p>UBIK</p>
+                        </div>
+
+                        <div onclick="abrirModalubik()" class="verso">
+                            <p>Ubik é um dos 4 membros da Mão de Deus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-ubik">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Ubik</h1>
+                        <p>Ubik, ao lado dos outros membros da Mão de Deus, se dão a conhecer a Griffith pela primeira vez enquanto ele está preso
+                        na Torre do Renascimento . Assim que o convidado de honra e seus sacrifícios aparecem no Interstício para o Eclipse , a
+                        outra Mão de Deus se revela.
+                        <br>
+                        <br>
+                        Ubik passa a influenciar a decisão de Griffith, submetendo-o a uma visão baseada em seu
+                        passado. Lá, na forma de uma velha, Ubik lembra Griffith do tipo de pessoa que ele é para sacrificar qualquer um para
+                        realizar seu sonho para que Griffith possa aceitar a oferta da Mão de Deus para se juntar a eles.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente conrad">
+                            <p>CONRAD</p>
+                        </div>
+
+                        <div onclick="abrirModalconrad()" class="verso">
+                            <p>Conrad é um dos 4 membros da Mão de Deus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-conrad">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Conrad</h1>
+                        <p>Conrad, ao lado do outro Mão de Deus, se dão a conhecer a Griffith pela primeira vez enquanto ele está preso na Torre do
+                        Renascimento . Assim que o convidado de honra e seus sacrifícios aparecem no Interstício para o Eclipse, a Mão de Deus
+                        se revela e Conrad usa seu poder para criar a torre que serviria como câmara de renascimento de Griffith.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente void">
+                            <p>VOID</p>
+                        </div>
+
+                        <div onclick="abrirModalvoid()" class="verso">
+                            <p>Void é um dos 4 membros da Mão de Deus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-void">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Void</h1>
+                        <p>Void e os outros membros da Mão de Deus se dão a conhecer a Griffith pela primeira vez enquanto ele está preso na Torre
+                        do Renascimento . Aparecendo na visão de Griffith, a Mão de Deus se apresenta como parente de Griffith e se refere a
+                        Griffith como um "Rei Abençoado da Saudade", garantindo-lhe que em breve se encontrarão na hora e local designados.
+                        <br>
+                        <br>
+                        Uma vez que o Eclipse está em andamento, com Griffith e o Bando do Falcão chegando em um Interstício , os membros da Mão
+                        de Deus convencem Griffith a sacrificar seus camaradas em troca de se juntar a suas fileiras e continuar a busca de seu
+                        sonho. Derivando visões do passado de Griffith, Ubik lembra Griffith de quem ele é, e Void insta Griffith a aceitar seu
+                        destino e reivindicar asas negras de corvo com as quais ele pode voar mais alto do que qualquer cume em busca de seu
+                        sonho.
+                        <br>
+                        <br>
+                        Conforme consagrado pela causalidade, Griffith deseja o sacrifício e o Vazio então prossegue para realizar a Invocação
+                        da Perdição, marcando todos os membros do Bando do Falcão presentes. Após o renascimento de Griffith como o quinto
+                        membro da Mão de Deus, Femto, terminar com a morte de todos, exceto Guts e Casca, o Cavaleiro Caveira intervém e ataca
+                        imediatamente o Void, que o Void rebate com manipulação espacial. Enquanto o Cavaleiro Caveira passa por Void, os dois
+                        se encaram. O cavaleiro finalmente leva Guts e Casca de volta ao Mundo Físico.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="flip">
+                        <div class="frente slan">
+                            <p>SLAN</p>
+                        </div>
+
+                        <div onclick="abrirModalslan()" class="verso">
+                            <p>Slan é o único membro feminino da Mão de Deus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="janela-modal" id="janela-modal-slan">
+                    <div class="modal">
+                        <button class="fechar" id="fechar">X</button>
+                        <h1>Slan</h1>
+                        <p>Slan e os outros membros da Mão de Deus se deram a conhecer a Griffith pela primeira vez durante sua prisão na Torre do
+                        Renascimento , cumprimentando-o como seu parente e prevendo sua próxima audiência com eles. Uma vez que o convidado
+                        de honra e seus sacrifícios aparecem diante deles durante o Eclipse , Slan é o primeiro da Mão de Deus a se
+                        materializar.
+                        <br>
+                        <br>
+                        Usando uma área de terra no Interstício como embarcação temporária, ela manifesta uma forma gigantesca de
+                        si mesma. Depois que Griffith reafirma sua ambição e sacrifica o Bando do Falcão , Slan expressa interesse na vã
+                        tentativa de Guts de salvar Griffith, e mais tarde derrama uma lágrima enquanto observa seu parente recém-renascido,
+                        Femto , violar sexualmente Casca , descrevendo-o e Guts.
+                        <br>
+                        <br>
+                        reação violenta como algo belo. Quando o Cavaleiro Caveira
+                        intervém e leva Guts e Casca de volta ao Mundo Físico , Slan fica surpreso e admite que a Mão de Deus não pode prever
+                        todas as possibilidades. Apesar do rumo dos acontecimentos, ela e seu parente não se incomodam e dão as boas-vindas à
+                        chegada da Era das Trevas após o nascimento do quinto</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="sobre">
+            <h1>Sobre</h1>
+            <div class="sobre-grupos">
+                <h2>Bando do falcão</h1>
+                <p>O grupo mais clássico de um RPG está aqui: o grandão que quase não fala; o cara com flechas e dardos e sua mira perfeita; a falastrão que se acha mas não é bom em nada e por aí vai… O Bando do Falcão é um grupo de jovens esperançosos e que seguem e amam o seu líder. Caska, umas das comandantes, é a única mulher do grupo. Sofrendo de todos os problemas que as mulheres passavam por aquela época rustica e medieval, Caska é uma líder forte e talentosa, disposta a fazer tudo que Griffith pedir com prontidão.</p>
+            </div>
+
+            <div class="sobre-grupos">
+                <h2>Mão de deus</h2>
+                <p>God Hand é um poderoso grupo composto de quatro seres manipuladores de realidade que, como o nome do grupo sugere, são servos da Ideia do Mal, a quem eles acreditam ser "Deus" e são, por sua vez, reverenciados como anjos e Deuses pagãos ao longo da história da humanidade.</p>
+            </div>
+
+        </section>
+
+        <section id="comentario" class="comentario">
+            {% if user.is_authenticated %}
+            <h1>Adicione um feedback</h1>
+            <form id="comment" action="addcomment/" method="POST">
+                {% csrf_token %}
+            
+                <div class="area">
+                    <input name="name" type="text" id="name" placeholder="Seu nome" required="">
+                </div>
+            
+                <div class="area">
+                    <textarea name="comment" placeholder="Seu comentario" required=""></textarea>
+                </div>
+            
+                <div class="area">
+                    <button type="submit" id="form-submit">Enviar</button>
+                </div>
+            </form>
+            {% else %}
+            <h2>Faça login para adicionar um feedback!</h2>
+            <a class="logout" href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </section>
+
+    {% endblock %}
+
+    <script src="{% static 'js/scrollsssss.js' %}"></script>
+    <script src="{% static 'js/moda.js' %}"></script>
+    <script src="{% static 'js/menu-mobile.js' %}"></script>
+</body>
+</html>

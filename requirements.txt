@@ -1,13 +1,9 @@
 asgiref==3.7.2
-bootstrap4==0.1.0
-crispy-bootstrap4==2023.1
 Django==4.2.4
 django-cleanup==8.0.0
-django-cors-headers==4.3.0
 django-crispy-forms==2.0
+gunicorn==21.2.0
 packaging==23.2
-python-decouple==3.8
-python-magic==0.4.27
 sqlparse==0.4.4
 typing_extensions==4.7.1
 tzdata==2023.3

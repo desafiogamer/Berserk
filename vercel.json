@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "games/wsgi.py",
+            "src": "Games/wsgi.py",
             "use": "@vercel/python",
             "config": {
                 "runtime": "python3.10.0"
@@ -23,7 +23,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "games/wsgi.py"
+            "dest": "Games/wsgi.py"
         }
     ]
 }

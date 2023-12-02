@@ -1,29 +1,27 @@
 {
     "version": 2,
-    "builds": [
+    "builds":[
         {
-            "src": "games/wsgi.py",
-            "use": "@vercel/python",
-            "config": {
-                "runtime": "python3.10.0"
-            }
+            "src":"games/wsgi.py",
+            "use":"@vercel/python",
+            "config": {"runtime": "python3.10.0"}
         },
         {
             "src": "build_files.sh",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "staticfiles/static"
+                "distDir": "staticfiles"
             }
-        }
+        }      
     ],
-    "routes": [
+    "routes" :[
         {
             "src": "/static/(.*)",
             "dest": "/static/$1"
         },
         {
             "src": "/(.*)",
-            "dest": "games/wsgi.py"
+            "dest":"games/wsgi.py"
         }
     ]
 }

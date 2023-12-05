@@ -21,7 +21,7 @@
                 <a href="#comentario">feedback</a>
             </nav>
         </div>
-
+        
         {% if user.is_authenticated %}
         <a class="logout" href="{% url 'logout' %}">Logout</a>
         {% else %}
@@ -49,7 +49,6 @@
             <div class="home-content">
                 <h1>Introdução</h1>
                 <div class="capa"></div>
-
                 <div class="escrita">
                     <p>Berserk é uma série de mangá escrita e ilustrada por Kentaro Miura. Situada em um mundo de fantasia sombria medieval inspirado na Europa, a história gira em torno dos personagens Guts, um mercenário solitário, e Griffith, o líder de um bando de mercenários chamados de Bando do Falcão. Temas como isolamento, camaradagem, e a questão de se a humanidade é fundamentalmente boa ou má permeiam a história, enquanto ela explora o melhor e o pior da natureza humana. Tanto o mangá como as animações são conhecidos por sua violência pesada.</p>
                     <button onclick="abrirModal()" class="botao">Ver mais</button>
@@ -81,12 +80,12 @@
                         <div class="frente guts">
                             <p>GUTS</p>
                         </div>
-
                         <div onclick="abrirModalguts()" class="verso">
                             <p>Guts é o principal protagonista de Berserk.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-guts">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -109,18 +108,18 @@
                         dias de descanso, correu para fora da mina élfica de Godo e chorou ao se lembrar das mortes dos Falcões.</p>
                     </div>
                 </div>
-
+                
                 <div class="container">
                     <div class="flip">
                         <div class="frente grift">
                             <p>GRIFFITH</p>
                         </div>
-
                         <div onclick="abrirModalgrift()" class="verso">
                             <p>Griffith é o antagonista principal de Berserk.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-grift">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -143,12 +142,12 @@
                         <div class="frente casca">
                             <p>CASCA</p>
                         </div>
-
                         <div onclick="abrirModalcasca()" class="verso">
                             <p>Casca é a protagonista feminina de Berserk e era a única mulher no Bando do Falcão.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-casca">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -178,12 +177,12 @@
                         <div class="frente rickert">
                             <p>RICKERT</p>
                         </div>
-
                         <div onclick="abrirModalrickert()" class="verso">
                             <p>Rickert era o membro mais novo do Bando do Falcão.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-rickert">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -211,12 +210,12 @@
                         <div class="frente wyald">
                             <p>WYALD</p>
                         </div>
-
                         <div onclick="abrirModalwyald()" class="verso">
                             <p>Wyald é um Apóstolo com cara de símio e uma atitude sádica tornou-o mais monstruoso do que humano.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-wyald">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -242,12 +241,12 @@
                         <div class="frente skull-knight">
                             <p>SKULL-KNIGHT</p>
                         </div>
-
                         <div onclick="abrirModalskull()" class="verso">
                             <p>Skull knight é uma figura enigmática e um autoproclamado "inimigo dos desumanos", tendo travado uma guerra contra os demônios por um milênio.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-skull">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -274,12 +273,12 @@
                         <div class="frente ubik">
                             <p>UBIK</p>
                         </div>
-
                         <div onclick="abrirModalubik()" class="verso">
                             <p>Ubik é um dos 4 membros da Mão de Deus.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-ubik">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -300,12 +299,12 @@
                         <div class="frente conrad">
                             <p>CONRAD</p>
                         </div>
-
                         <div onclick="abrirModalconrad()" class="verso">
                             <p>Conrad é um dos 4 membros da Mão de Deus.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-conrad">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -321,12 +320,12 @@
                         <div class="frente void">
                             <p>VOID</p>
                         </div>
-
                         <div onclick="abrirModalvoid()" class="verso">
                             <p>Void é um dos 4 membros da Mão de Deus.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-void">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -356,12 +355,12 @@
                         <div class="frente slan">
                             <p>SLAN</p>
                         </div>
-
                         <div onclick="abrirModalslan()" class="verso">
                             <p>Slan é o único membro feminino da Mão de Deus.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="janela-modal" id="janela-modal-slan">
                     <div class="modal">
                         <button class="fechar" id="fechar">X</button>
@@ -393,12 +392,10 @@
                 <h2>Bando do falcão</h1>
                 <p>O grupo mais clássico de um RPG está aqui: o grandão que quase não fala; o cara com flechas e dardos e sua mira perfeita; a falastrão que se acha mas não é bom em nada e por aí vai… O Bando do Falcão é um grupo de jovens esperançosos e que seguem e amam o seu líder. Caska, umas das comandantes, é a única mulher do grupo. Sofrendo de todos os problemas que as mulheres passavam por aquela época rustica e medieval, Caska é uma líder forte e talentosa, disposta a fazer tudo que Griffith pedir com prontidão.</p>
             </div>
-
             <div class="sobre-grupos">
                 <h2>Mão de deus</h2>
                 <p>God Hand é um poderoso grupo composto de quatro seres manipuladores de realidade que, como o nome do grupo sugere, são servos da Ideia do Mal, a quem eles acreditam ser "Deus" e são, por sua vez, reverenciados como anjos e Deuses pagãos ao longo da história da humanidade.</p>
             </div>
-
         </section>
 
         <section id="comentario" class="comentario">
@@ -406,15 +403,12 @@
             <h1>Adicione um feedback</h1>
             <form id="comment" action="addcomment/" method="POST">
                 {% csrf_token %}
-            
                 <div class="area">
                     <input name="name" type="text" id="name" placeholder="Seu nome" required="">
                 </div>
-            
                 <div class="area">
                     <textarea name="comment" placeholder="Seu comentario" required=""></textarea>
                 </div>
-            
                 <div class="area">
                     <button type="submit" id="form-submit">Enviar</button>
                 </div>
@@ -424,7 +418,6 @@
             <a class="logout" href="{% url 'login' %}">Login</a>
             {% endif %}
         </section>
-
     {% endblock %}
 
     <script src="{% static 'js/scrollsssss.js' %}"></script>
